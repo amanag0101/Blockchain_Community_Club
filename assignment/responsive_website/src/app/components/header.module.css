@@ -1,0 +1,117 @@
+.header {
+    background-color: black;
+    color: #fff;
+    height: 100%;
+}
+
+.header .bg img {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.header .navbar {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    padding: 20px 10px;
+    align-items: center;
+}
+
+.header .navbar a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header .navbar .col-1 {
+    flex-basis: 30%;
+}
+
+.header .navbar .col-1 .branding {
+    display: flex;
+}
+
+.header .navbar .col-1 .branding .title {
+    margin-left: 6px;
+}
+
+.header .navbar .col-2 {
+    display: flex;
+    text-align: right;
+    justify-content: right;
+    flex-basis: 70%;
+}
+
+.header .navbar .col-2 a {
+    padding: 12px;
+    margin-right: 12px;
+}
+
+.header .navbar .col-2 .login {
+    background-color: #ff4500;
+    border-radius: 6px;
+}
+
+.header .navbar .col-2 .signup {
+    border: 1px solid #fff;
+    border-radius: 6px;
+}
+
+.header .content {
+    position: relative;
+    height: 35%;
+}
+
+.header .content .text {
+    position: relative;
+    text-align: center;
+    top: 100%;
+}
+
+.header .content .dots {
+    text-align: center;
+    position: relative;
+    top: 150%;
+}
+
+.header .content .dots .dot {
+    background-color: #fff;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.header .content .dots .dot:hover {
+    background-color: #ccc;
+}
+
+@media (max-width: 720px) {
+    .header .bg img {
+        height: 80%;
+    }
+
+    .header .navbar {
+        flex-direction: column;
+    }
+
+    .header .navbar .col-2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .header .navbar .col-2 a {
+        margin-top: 10px;
+    }
+
+    .header .content .text {
+        top: 50%;
+    }
+
+    .header .content .dots {
+        top: 95%;
+    }
+}

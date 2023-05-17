@@ -1,0 +1,17 @@
+.box {
+    border: 1px solid;
+    padding: 12px;
+}
+
+.box .image,
+.box .heading,
+.box .description {
+    text-align: center;
+    padding: 8px;
+}
+
+@media (max-width: 720px) {
+    .box {
+        border: none;
+    }
+}

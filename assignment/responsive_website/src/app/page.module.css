@@ -1,0 +1,11 @@
+.home {
+  height: 100vh;
+}
+
+.home .header {
+  height: 50vh;
+}
+
+.home .services {
+  height: 50vh;
+}

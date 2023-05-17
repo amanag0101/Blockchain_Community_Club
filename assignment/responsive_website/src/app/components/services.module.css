@@ -1,0 +1,33 @@
+.services {
+    height: 100%;
+}
+
+.services .title {
+    text-align: center;
+    padding: 12px;
+}
+
+.services .content {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.services .content .box {
+    flex-basis: 30%;
+}
+
+@media (max-width: 720px) {
+    .services {
+        margin-top: 200px;
+    }
+
+    .services .content {
+        flex-direction: column;
+    }
+
+    .services .content .box {
+        margin-top: 20px;
+    }
+}
