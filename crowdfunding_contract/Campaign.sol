@@ -108,10 +108,43 @@ contract Campaign {
     function withdrawFunds(uint256 amount) public {
         address payable recipient = payable(msg.sender);
         require(recipient != manager);
-        require(contributors[recipient] >= amount && amount <= totalFundedAmount);
+        require(
+            contributors[recipient] >= amount && amount <= totalFundedAmount
+        );
         recipient.transfer(amount);
         contributors[recipient] -= amount;
         totalFundedAmount -= amount;
+    }
+
+    function getRequests()
+        public
+        view
+        returns (
+            string[] memory,
+            uint256[] memory,
+            address[] memory,
+            bool[] memory,
+            uint256[] memory
+        )
+    {
+        // Create arrays to hold the properties of the Request structs
+        string[] memory descriptions = new string[](requests.length);
+        uint256[] memory values = new uint256[](requests.length);
+        address[] memory recipients = new address[](requests.length);
+        bool[] memory completes = new bool[](requests.length);
+        uint256[] memory approvalCounts = new uint256[](requests.length);
+
+        // Populate the arrays with the properties of the Request structs
+        for (uint256 i = 0; i < requests.length; i++) {
+            descriptions[i] = requests[i].description;
+            values[i] = requests[i].value;
+            recipients[i] = requests[i].recipient;
+            completes[i] = requests[i].complete;
+            approvalCounts[i] = requests[i].approvalCount;
+        }
+
+        // Return the arrays
+        return (descriptions, values, recipients, completes, approvalCounts);
     }
 
     function getRequestsCount() public view returns (uint256) {
@@ -121,13 +154,7 @@ contract Campaign {
     function getSummary()
         public
         view
-        returns (
-            uint256,
-            uint256,
-            uint256,
-            uint256,
-            address
-        )
+        returns (uint256, uint256, uint256, uint256, address)
     {
         return (
             minimumContribution,
